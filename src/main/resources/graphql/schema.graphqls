@@ -1,0 +1,24 @@
+type Query {
+	getAllToDoTasks:[ToDoTask]
+	getToDoTask(id : Int):ToDoTask
+}
+
+type Mutation {
+	saveItem(toDoTaskModel:ToDoTaskModel):ToDoTask
+	deleteToDoTask(id : Int) : Boolean
+	updateToDoTask(id : Int, isCompleted : Boolean) : Boolean
+}
+
+type ToDoTask { 
+    id :ID!,
+	title : String,
+	isCompleted:Boolean,		
+	isFavorite:Boolean,
+}
+
+input ToDoTaskModel
+{
+	title : String,
+	isCompleted:Boolean,
+	isFavorite:Boolean,	
+}
